@@ -15,7 +15,7 @@ def get_forecast_one_day():
     predictions = forecast_one_day()
 
     if not predictions:
-        abort(400, "Model not foundd.")
+        abort(400, "Model not found from get_forecast_one_day")
 
     return jsonify({"forecast": predictions})
 

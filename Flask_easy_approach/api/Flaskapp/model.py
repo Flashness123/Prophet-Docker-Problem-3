@@ -6,7 +6,7 @@ from prophet.serialize import model_from_json
 
 def forecast(days = 7):
     #model_file = "api/Flaskapp/models/prophet_serialized_model.json"
-    model_file = "./models/prophet_serialized_model.json"
+    model_file = "Flaskapp/models/prophet_serialized_model.json"
 
     if not os.path.exists(model_file):
         print("Model file could not be found")
@@ -23,11 +23,12 @@ def forecast(days = 7):
     return forecast[['ds', 'yhat']].tail(days).to_dict("records")
 
 def forecast_one_day():
+    print("Accessed forecast_one_day")
     #model_file = "api/Flaskapp/models/prophet_serialized_model.json"
-    model_file = "./models/prophet_serialized_model.json"
+    model_file = "Flaskapp/models/prophet_serialized_model.json"
 
     if not os.path.exists(model_file):
-        print("Model file could not be foundd")
+        print("Model file could not be found from forecast_one_day()")
         return False
     
     with open(model_file, 'r') as fin:
